@@ -5,7 +5,8 @@ from random import randint
 import re
 import pandas as pd
 
-url = 'https://ca.trustpilot.com/review/www.skype.com'
+# Some constant to save different infos from webpage.
+url = 'https://ca.trustpilot.com/review/www.skype.com' # you can change the url
 URL = []
 URL.append(url)
 companyName = []
