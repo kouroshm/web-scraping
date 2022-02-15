@@ -15,6 +15,7 @@ ratingValue = []
 
 
 def getdata(url):
+    '''This function will get all the data from trustpilot'''
     resp = requests.get(url)
     soup = BeautifulSoup(resp.text, 'html.parser')
     sleep(randint(2, 10))
@@ -22,6 +23,7 @@ def getdata(url):
 
 
 def findreviewnum(soup):
+    '''The function counts the number of reviews'''
 
     script = soup.find('script', {'data-initial-state': 'review-list'})
     script = str(script.contents)
@@ -30,6 +32,7 @@ def findreviewnum(soup):
 
 
 def getnextpage(soup):
+    '''The function finds the next button and return the url'''
     next_btn = soup.find('a', {'class': 'button button--primary next-page'})
     if next_btn:
         url = 'https://ca.trustpilot.com' + next_btn['href']
@@ -39,11 +42,13 @@ def getnextpage(soup):
 
 
 def reviewBodyStrip(reviewBody):
+    '''Replaced all break lines with nothing and remove characters
+    from the beginning and the end of the string.'''
     reviewBody = reviewBody.replace('\n', '')
     reviewBody = reviewBody.lstrip()
     reviewBody = reviewBody.rstrip()
 
-
+# Getting the reviews from url and finding number of reviews.
 soup = getdata(url)
 print(findreviewnum(soup))  # number of reviews
 while True:
@@ -54,7 +59,8 @@ while True:
     else:
         break
 
-
+# This for loop will input all different column in the review columns
+# into different columns and at the end write it to a csv file.
 for url in URL:
     soup = BeautifulSoup(requests.get(url).text, 'html.parser')
     reviewContainer = soup.find_all('p', {'class': 'review-content__text'})
@@ -85,7 +91,8 @@ for url in URL:
         n = str(n)
         ratingValue.append(n[-3])
 
-
+'''Making a dictionary ready to input all the information and write it 
+to the csv file.'''
 dict = {'companyName': companyName,
         'datePublished': datePublished,
         'ratingValue': ratingValue,
