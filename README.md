@@ -11,4 +11,4 @@ To install the requirements please use the following code:
 
 The csv file will be saved in the same directory when the code is ran. 
 You can input any url by changing the line 8 of the code:  
-`url = 'https://ca.trustpilot.com/review/www.skype.com'`
+`url = 'add your link here'`
