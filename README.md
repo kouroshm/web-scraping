@@ -3,7 +3,7 @@ In this project I scraped reviews for skype.com from Trustpilot.
 
 # Usage
 
-This code can be used to scrape reviews from trustpilot and use the reviews to do sentiment analysis. You can find different two different method on sentiment analysis that was done on these reviews in [BoW Sentiment Analysis](/kouroshm/BoW-sentiment-analysis).
+This code can be used to scrape reviews from trustpilot and use the reviews to do sentiment analysis. You can find different two different method on sentiment analysis that was done on these reviews in [BoW Sentiment Analysis](https://github.com/kouroshm/BoW-sentiment-analysis).
 
 # Requirements
 To install the requirements please use the following code:  
